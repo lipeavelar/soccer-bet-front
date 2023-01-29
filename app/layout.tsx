@@ -1,11 +1,12 @@
-import { Oxygen } from '@next/font/google';
-import './globals.css';
+import { Oxygen } from '@next/font/google'
+import Header from 'components/Header/header'
+import './globals.css'
 
-const oxygen = Oxygen({ weight: '400', subsets: ['latin'] });
+const oxygen = Oxygen({ weight: ['400', '700'], subsets: ['latin'] })
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
@@ -14,7 +15,10 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={oxygen.className}>{children}</body>
+      <body className={oxygen.className}>
+        <Header />
+        {children}
+      </body>
     </html>
-  );
+  )
 }
